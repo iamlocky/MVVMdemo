@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cn.lockyluo.mvvmdemo.MainActivity">
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="dataBean"
+            type="cn.lockyluo.mvvmdemo.DataBean"/>
+
+    </data>
+
+    <LinearLayout
+        android:animateLayoutChanges="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_16sp"
+            android:text="@={dataBean.textData}"/>
+
+        <TextView
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@{dataBean.textData}"
+            android:textColor="@android:color/white"
+            android:visibility="@{TextUtils.isEmpty(dataBean.textData)?View.GONE:View.VISIBLE}"
+            android:textSize="@dimen/textsize_16sp" />
+    </LinearLayout>
+
+
+</layout>
